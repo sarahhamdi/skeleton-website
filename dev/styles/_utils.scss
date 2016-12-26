@@ -1,0 +1,99 @@
+// Base Colours
+
+// greys s
+$desert-storm   : rgba(248, 248, 248, 1.00);
+$aluminium      : rgba(155, 155, 155, 1.00);
+$charcoal       : rgba(36, 36, 36, 1.00);
+// purples
+$montana        : rgba(45, 28, 51, 1.00);
+$grape          : rgba(200, 9, 141, .7);
+$light-coral    : rgba(232, 136, 131, 1.00);
+$lust           : rgba(231, 46, 32, 1.00);
+// yellows
+$buttered-rum   : rgba(168, 112, 11, 1.00);
+$buttercup      : rgba(247, 169, 25, 1.00);
+$almond         : rgba(254, 235, 204, 1.00);
+// blues
+$saltpan        : rgba(241, 249, 241, 1.00);
+$pelorous       : rgba(51, 175, 182, 1.00);
+$tangaroa       : rgba(30, 44, 60, 1.00);
+
+$text-shadow    : 3px 4px 7px 0px rgba(155, 155, 155, 0.39);
+$box-shadow     : 3px 4px 7px 0px rgba(155, 155, 155, 0.39);
+
+$palettes: (
+  base: (
+    primary     : $grape,
+    selection   : $almond,
+    lines       : $aluminium
+  ),
+
+  text: (
+    primary     : $charcoal,
+    secondary   : $aluminium,
+    heading     : $montana,
+    link        : $buttercup,
+    link-hover  : $buttered-rum,
+    inverted    : $desert-storm
+  ),
+
+  background: (
+    dark        : $charcoal,
+    light       : $almond,
+    body        : $saltpan
+  ),
+
+  state: (
+    muted       : $almond,
+    success     : $pelorous,
+    warning     : $buttercup,
+    error       : $lust
+  )
+);
+
+$zindex-minus1  : -1000;
+$zindex-plus1   : 1000;
+$zindex-2       : 2000;
+$zindex-3       : 3000;
+$zindex-4       : 4000;
+$zindex-5       : 5000;
+$zindex-6       : 6000;
+$zindex-7       : 7000;
+$zindex-8       : 8000;
+$zindex-9       : 9000;
+$zindex-10      : 10000;
+
+// functions
+
+// get colours from the colour map
+@function palette($palette, $tone: 'base') {
+    @return map-get(map-get($palettes, $palette), $tone);
+}
+
+// Mixins
+@mixin fontSize($sizeValue) {
+    font-size: $sizeValue * 1px;
+    font-size: ($sizeValue/10) * 1rem;
+}
+
+@mixin font-properties ($family, $weight) {
+    font-family: $family;
+    font-weight: $weight;
+}
+
+@mixin padding-margin ($padding, $margin) {
+    padding: $padding;
+    margin: $margin;
+}
+
+@mixin colors ($background, $color) {
+    background: $background;
+    color: $color;
+}
+
+@mixin flex ($flexflow, $justify-content, $align-content) {
+    flex-flow: $flexflow;
+    justify-content: $justify-content;
+    align-content: $align-content
+}
+

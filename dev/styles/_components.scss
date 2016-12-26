@@ -1,0 +1,25 @@
+// COMPONENTS
+// BUTTONS
+.button {
+    @include padding-margin(10px 18px, 20px);
+    border-radius: 2px;
+    border: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    &--dark {
+        @extend .button;
+        background: palette(text, link);
+        color: palette(text, inverted);
+        &:hover {
+            background: palette(text, link-hover);
+        }
+    } 
+    &--light {
+        @extend .button;
+        background: palette(base, selection);
+        &:hover {
+            background: palette(base, lines);
+        }
+    }
+}
+
