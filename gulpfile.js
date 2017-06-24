@@ -1,6 +1,6 @@
 'use strict'
 
-		const gulp = require('gulp');
+	const gulp = require('gulp');
     const sass = require('gulp-sass');
     const concat = require('gulp-concat');
     const browserSync = require('browser-sync').create();
@@ -12,7 +12,6 @@
     const notify = require('gulp-notify');
     const plumber = require('gulp-plumber');
     const sourcemaps = require('gulp-sourcemaps');
-    const uglify = require('gulp-uglify');
     const babel = require('gulp-babel');
     
 
@@ -44,11 +43,10 @@ gulp.task('scripts', function() {
     return gulp.src('dev/scripts/**/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'))
-        // .pipe(babel({
-        //   	presets: ['es2015']
-        // }))
+        .pipe(babel({
+          	presets: ['es2015']
+        }))
         .pipe(concat('main.min.js'))
-        .pipe(uglify())
         .pipe(gulp.dest('public/scripts'))
         .pipe(reload({stream:true}));
 });
